@@ -44,7 +44,7 @@ const components = {
     <a className="text-blue-600 hover:underline" {...props} />
   ),
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-    const src = props.src ?? "";
+    const src = typeof props.src === "string" ? props.src : "";
     const proxied = src.includes("cdn.nlark.com") || src.includes("cdn.yuque.com")
       ? `/api/image-proxy?url=${encodeURIComponent(src)}`
       : src;
